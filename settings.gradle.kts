@@ -1,7 +1,7 @@
 rootProject.name = "ks3"
 
 plugins {
-   id("com.gradle.enterprise") version "3.17.4"
+   id("com.gradle.enterprise") version "3.19"
 }
 
 apply(from = "build-logic/repositories.gradle.kts")
@@ -19,7 +19,7 @@ include(
 )
 
 
-gradleEnterprise {
+develocity {
 
    buildScan {
       val isCI = providers.environmentVariable("CI").orNull.toBoolean()
@@ -30,10 +30,9 @@ gradleEnterprise {
 
       if (isCI) {
          // only automatically enable build scan on CI
-         termsOfServiceUrl = "https://gradle.com/terms-of-service"
-         termsOfServiceAgree = "yes"
-         publishAlways()
-         isUploadInBackground = false
+         termsOfUseUrl = "https://gradle.com/terms-of-service"
+         termsOfUseAgree = "yes"
+         uploadInBackground.set(false)
 
          val ghServer = providers.environmentVariable("GITHUB_SERVER_URL").orNull
          val ghRepo = providers.environmentVariable("GITHUB_REPOSITORY").orNull

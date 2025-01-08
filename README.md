@@ -1,16 +1,21 @@
 # KotlinX Serialization Standard Serializers (KS3)
-![Stability Status - Beta](https://kotl.in/badges/beta.svg)
+![Stability Status - Stable](https://kotl.in/badges/stable.svg)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/kantis/ks3/ci.yaml?branch=main)
-![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/io.ks3/ks3-standard?label=latest%20&server=https%3A%2F%2Fs01.oss.sonatype.org)
 
-This project aims to provide a set of serializers for common types, as well as provide [utilities](/doc/builders.md) to make it more convenient to build custom serializers for your needs.
+This project solves two things:
+* Provides [out-of-the-box serializers](https://github.com/Kantis/ks3/blob/main/doc/jdk.md) for a lof of commonly used Java types.
+* Provides [utilities](https://github.com/Kantis/ks3/blob/main/doc/builders.md) for more conveniently defining your own serializers by composition.
 
-> ⚠️ Consider this project to be in [Beta](https://kotlinlang.org/docs/components-stability.html) for the time being. The project has had
-> no need to perform any breaking changes so far. We would be happy for you to use it, and appreciate your feedback, but we can't guarantee
-> that APIs won't change.
+This is accomplished without any additional footprint (the project only depends on KotlinX serialization itself).
 
 ## Contributing
 See the contribution guide [here](CONTRIBUTING.md).
+
+## Compatibility
+
+| Ks3 | Kotlin | KotlinX serialization |
+|-----|--------|-----------------------|
+| 1.0 | 1.9+   | 1.6+                  |
 
 ## Getting started
 
@@ -18,7 +23,7 @@ Add the dependency. With Gradle:
 
 ```kotlin
 dependencies {
-    implementation("io.ks3:ks3-jdk:0.6.0")
+    implementation("io.ks3:ks3-jdk:1.0.0")
 }
 ```
 
@@ -28,7 +33,7 @@ Maven:
 <dependency>
   <groupId>io.ks3</groupId>
   <artifactId>ks3-jdk-jvm</artifactId>
-  <version>0.6.0</version>
+  <version>1.0.0</version>
 </dependency>
 ```
 
